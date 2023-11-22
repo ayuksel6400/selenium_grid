@@ -21,7 +21,7 @@ import java.time.Duration;
 
 public class DriverManage {
 
-    static WebDriver driver;
+    public static WebDriver driver;
 
     DesiredCapabilities capabilities = new DesiredCapabilities();
     public WebDriver setupChromeDriver() {
@@ -35,6 +35,7 @@ public class DriverManage {
 
         try {
             driver = new RemoteWebDriver(new URL(ConfigReader.getProperty("url")), chromeOptions);
+            // kendi hazırladığım chromeoptions'ı kullanmalıydım.
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -71,7 +72,7 @@ public class DriverManage {
 
     }
 
-    static void setDriver (String browser) {
+    public static void setDriver (String browser) {
 
         switch (browser){
 
@@ -161,7 +162,7 @@ public class DriverManage {
 
     }
 
-    static void closeDriver(){
+    public static void closeDriver(){
 
         if(driver!= null){
             driver.close();

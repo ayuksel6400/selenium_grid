@@ -25,7 +25,7 @@ public class MyGrid {
     @Test
     void firefoxTest(){
         try {
-            driver = new RemoteWebDriver(new URL(" http://192.168.1.62:4444"),new FirefoxOptions());
+            driver = new RemoteWebDriver(new URL("http://192.168.1.62:4444"),new FirefoxOptions());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -33,6 +33,23 @@ public class MyGrid {
         System.out.println(driver.getCurrentUrl());
         System.out.println(driver.getTitle());
 
+    }
+    @Test
+    public void remoteChromeDriver(){
+
+        driver = driverManage.setupChromeDriver();
+        driver.get("https://www.google.com");
+        System.out.println(driver.getCurrentUrl());
+    }
+
+    @Test
+    public void remoteFirefoxDriver(){
+
+
+        driver=driverManage.setupFirefoxDriver();
+
+        driver.get("https://www.edebiyathocam.net");
+        System.out.println(driver.getCurrentUrl());
     }
 
 
